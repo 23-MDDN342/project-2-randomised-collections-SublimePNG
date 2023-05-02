@@ -54,22 +54,39 @@ function draw () {
       let x = w/2 + w*j;
      
         // center face
-        let eye_value = int(random(2,4));
-        let tilt_value = random(-45, 45);
-        let mouth_value = random(3,4);
-        let is_cyclops = random(0, 100);
+      
+        //let is_cyclops = random(0, 100);
 
-        if(is_cyclops < 10) {
-          eye_value = 1;
-          tilt_value = random(-5, 5);
-          mouth_value = random(0, 1.7);
-        }
+        //if(is_cyclops < 10) {
+         // eye_value = 1;
+         // tilt_value = random(-5, 5);
+         // mouth_value = random(0, 1.7);
+        //}
 
         push();
         translate(x, y);
         scale(w/25, h/25);
+        let faceWidth = random(-0.5,0.5)
+        let jawWidth = random(-2,2);
+        let chinWidth = random(-1, 2);
+        let chinLength = random(0,1);
         
-        orangeAlienFace(tilt_value, eye_value, mouth_value);
+        let mouthY = random(-0.7,1.5);
+        let mouthSize = random(-1,1);
+        
+        let noseWidth = random (-2,2)
+        let noseLength = random (-1,2)
+
+        let eyeX = random (-.03,0.3)
+        let eyeY = random(-1,1)
+        let eyeWidth= random(-0.5,0.5)
+        let eyeHeight = random(-0.5,0.5)
+
+        let browY = random(-1,1)
+        let browThick = random(-0.5,1)
+        
+        //MAINFACE(tilt_value, eye_value, mouth_value);
+        MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick);
         pop();
       
     }

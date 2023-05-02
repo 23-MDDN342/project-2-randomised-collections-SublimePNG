@@ -7,6 +7,7 @@ const canvasHeight = 500;
 const bg_color = [71, 222, 219];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
+let slider11, slider12, slider13, slider14;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -27,6 +28,10 @@ function setup () {
   slider8 = createSlider(0, 100, 50);
   slider9 = createSlider(0, 100, 50);
   slider10 = createSlider(0, 100, 50);
+  slider11 = createSlider(0, 100, 50);
+  slider12 = createSlider(0, 100, 50);
+  slider13 = createSlider(0, 100, 50);
+  slider14 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -38,6 +43,10 @@ function setup () {
   slider8.parent('slider8Container');
   slider9.parent('slider9Container');
   slider10.parent('slider10Container');
+  slider11.parent('slider11Container');
+  slider12.parent('slider12Container');
+  slider13.parent('slider13Container');
+  slider14.parent('slider14Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -69,6 +78,10 @@ function draw () {
   let s8 = slider8.value();
   let s9 = slider9.value();
   let s10 = slider10.value();
+  let s11 = slider11.value();
+  let s12 = slider12.value();
+  let s13 = slider13.value();
+  let s14 = slider14.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -85,10 +98,26 @@ function draw () {
   push();
   if (mode == '1') {
    // draw face using values mapped from 3 sliders
-   let tilt_value = map(s1, 0, 100, -90, 90);
-   let mouth_value = map(s2, 0, 100, 0.5, 10);
-   let eye_value = int(map(s3, 0, 100, 1, 3));
-   MAINFACE(tilt_value, eye_value, mouth_value);
+   let faceWidth = map(s1, 0, 100, -0.5,0.5)
+   let jawWidth = map(s2, 0, 100, -2, 2);
+   let chinWidth = map(s3, 0, 100, -1, 2);
+   let chinLength = map(s4, 0, 100, -1, 2);
+   
+   let mouthY = map(s5, 0, 100, -1, 1.5);
+   let mouthSize = map(s6,0 ,100, -1, 1)
+   
+   let noseWidth = map(s7, 0, 100, -2, 2)
+   let noseLength = map(s8, 0, 100, -1, 2)
+   
+   let eyeX =map(s9, 0, 100, -0.3,0.3)
+   let eyeY =map(s10, 0, 100, -1,1)
+   let eyeWidth =map(s11,0,100,-0.5,0.5)
+   let eyeHeight =map(s12,0,100,-0.5,0.5)
+
+   let browY =map(s13,0,100 ,-1,1)
+   let browThick =map(s14,0,100, -0.5,1)
+   
+   MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY,browThick);
   }
 
   if (mode == '2') {

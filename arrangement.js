@@ -74,8 +74,8 @@ function draw () {
         let mouthY = random(-0.7,1.5);
         let mouthSize = random(-1,1);
         
-        let noseWidth = random (-2,2)
-        let noseLength = random (-1,2)
+        let noseWidth = random (-0.5,0.5)
+        let noseLength = random (-0.3,0.3)
 
         let eyeX = random (-.03,0.3)
         let eyeY = random(-1,1)

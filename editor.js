@@ -106,8 +106,8 @@ function draw () {
    let mouthY = map(s5, 0, 100, -1, 1.5);
    let mouthSize = map(s6,0 ,100, -1, 1)
    
-   let noseWidth = map(s7, 0, 100, -2, 2)
-   let noseLength = map(s8, 0, 100, -1, 2)
+   let noseWidth = map(s7, 0, 100, -0.5, 0.5)
+   let noseLength = map(s8, 0, 100, -0.3, 0.3)
    
    let eyeX =map(s9, 0, 100, -0.3,0.3)
    let eyeY =map(s10, 0, 100, -1,1)

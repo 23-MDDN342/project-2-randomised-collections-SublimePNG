@@ -45,7 +45,47 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
+
+
+fill(158, 146, 122)
+rect(45,410,100,100)
+
+fill(204, 192, 169)
+rect(138,410,7,100)
+rect(124,410,7,100)
+rect(110,410,7,100)
+rect(96,410,7,100)
+rect(82,410,7,100)
+
+fill(158, 146, 122)
+beginShape();
+vertex(45,400)
+vertex(145,400)
+vertex(145,420)
+vertex(45,460)
+endShape(CLOSE);
+
+
+fill(204, 192, 169)
+rect(30,400,130,10)
+ellipse(30,417.5,35)
+ellipse(160,417.5,35)
+
+fill(158, 146, 122)
+ellipse(30,417.5,25)
+ellipse(160,417.5,25)
+
+fill(204, 192, 169)
+ellipse(30,417.5,10)
+ellipse(160,417.5,10)
+
+
+
+
+
+
+
+// draw a 7x4 grid of faces
   let w = canvasWidth / 5;
   let h = canvasHeight / 1;
   for(let i=0; i<4; i++) {

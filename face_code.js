@@ -21,11 +21,62 @@ function MAINFACE(faceWidth, jawWidth, chinLength, chinWidth, mouthY, mouthSize,
  fill(facecolour)
   noStroke()
   //stroke(100)//temp
-  //ears
-rect(6.5+faceWidth,-1.5,2.5,5)
-rect(-6.5-faceWidth,-1.5,-2.5,5)
+
+////////////bust///////////////////////////
+  push();
+translate(-12.5,-32.5);
+scale(0.13, 0.13);
+//neck and shoulders
+fill(204, 192, 169)
+beginShape();
+vertex(60-jawWidth*7,250)
+vertex(130+jawWidth*7,250)
+vertex(130+jawWidth*7,330-jawWidth*5)
+vertex(180,350)
+vertex(130,400)
+vertex(60,400)
+vertex(10,350)
+vertex(60-jawWidth*7,330-jawWidth*5)
+endShape(CLOSE);
+//neck shadow
+fill(158, 146, 122)
+beginShape();
+vertex(60-jawWidth*7,250)
+vertex(130+jawWidth*7,250)
+vertex(130+jawWidth*7,330-jawWidth*5)
+vertex(60,400)
+vertex(10,350)
+vertex(60-jawWidth*7,330-jawWidth*5)
+endShape(CLOSE);
+pop();
+
+
+  /////////////////ears///////////////////
+//rect(-6.5-faceWidth,-1.5,-2.5,5)//L
+fill(158, 146, 122)
+beginShape()
+vertex(-6.5-faceWidth,-1.5)
+vertex(-8.5-faceWidth,-1.8)
+vertex(-9.5-faceWidth,1)
+vertex(-8-faceWidth,4.5)
+vertex(-6-faceWidth,5)
+vertex(-5-faceWidth,4)
+endShape(CLOSE)
+
+//rect(6.5+faceWidth,-1.5,2.5,5)//R
+fill(204, 192, 169)
+beginShape()
+vertex(6.5+faceWidth,-1.5)
+vertex(8.5+faceWidth,-1.8)
+vertex(9.5+faceWidth,1)
+vertex(8+faceWidth,4.5)
+vertex(6+faceWidth,5)
+vertex(5+faceWidth,4)
+endShape(CLOSE)
+
  
-//head
+////////////////////head//////////////////////
+
   beginShape();
   vertex(-2-chinWidth,10+chinLength);//chin L
   vertex(-0,10.3+chinLength)
@@ -49,7 +100,7 @@ rect(-6.5-faceWidth,-1.5,-2.5,5)
 
   fill(shadowColour)
   beginShape();
-  vertex(-5-faceWidth,2)
+  vertex(-5-faceWidth-jawWidth/3,2)
   //vertex(-5.5-faceWidth,0)
   vertex(-6-faceWidth,-2)
   vertex(-7-faceWidth,-3);
@@ -226,6 +277,7 @@ vertex(-0.8,6.5)
 endShape(CLOSE)
 
 pop()
+
 
   
   

@@ -10,7 +10,7 @@ let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
 // global variables for colors
-const bg_color1 = [71, 222, 219];
+const bg_color1 = [77, 113, 135];
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -46,8 +46,8 @@ function draw () {
   noStroke();
 
   // draw a 7x4 grid of faces
-  let w = canvasWidth / 7;
-  let h = canvasHeight / 4;
+  let w = canvasWidth / 5;
+  let h = canvasHeight / 1;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
@@ -65,7 +65,7 @@ function draw () {
 
         push();
         translate(x, y);
-        scale(w/25, h/25);
+        scale(w/25, h/65);
         let faceWidth = random(-0.5,0.5)
         let jawWidth = random(-2,2);
         let chinWidth = random(-1, 2);
@@ -84,9 +84,11 @@ function draw () {
 
         let browY = random(-1,1)
         let browThick = random(-0.5,1)
+
+        let headHeight = random(-1,1)
         
         //MAINFACE(tilt_value, eye_value, mouth_value);
-        MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick);
+        MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick, headHeight);
         pop();
       
     }

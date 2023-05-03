@@ -13,7 +13,7 @@
  * eye_value is an integer number of eyes: either 0, 1, 2, or 3
  * mouth_value is how open the mouth is and should generally range from 0.5 to 10
  */
-function MAINFACE(faceWidth, jawWidth, chinLength, chinWidth, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick) {
+function MAINFACE(faceWidth, jawWidth, chinLength, chinWidth, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick, headHeight) {
  let facecolour= color(204, 192, 169)
  let featureColour= color(158, 146, 122)
  let shadowColour= color(158, 146, 122)
@@ -34,11 +34,13 @@ rect(-6.5-faceWidth,-1.5,-2.5,5)
   vertex(6.2+jawWidth,5.5);//Jaw R
   vertex(7+faceWidth,2);
   vertex(7+faceWidth,-3);
-  vertex(6,-7);
-  vertex(3,-9);
-  vertex(0,-9.5);
-  vertex(-3,-9);
-  vertex(-6,-7);
+
+  vertex(6,-7-headHeight/2);
+  vertex(3,-9-headHeight);
+  vertex(0,-9.5-headHeight);
+  vertex(-3,-9-headHeight);
+  vertex(-6,-7-headHeight/2);
+
   vertex(-7-faceWidth,-3);
   vertex(-7-faceWidth,2);
   vertex(-6.2-jawWidth,5.5);//Jaw L

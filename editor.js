@@ -7,7 +7,7 @@ const canvasHeight = 500;
 const bg_color = [77, 113, 135];
 let slider1, slider2, slider3, slider4, slider5;
 let slider6, slider7, slider8, slider9, slider10;
-let slider11, slider12, slider13, slider14;
+let slider11, slider12, slider13, slider14, slider15;
 let faceSelector;
 let faceGuideCheckbox;
 
@@ -32,6 +32,7 @@ function setup () {
   slider12 = createSlider(0, 100, 50);
   slider13 = createSlider(0, 100, 50);
   slider14 = createSlider(0, 100, 50);
+  slider15 = createSlider(0, 100, 50);
 
   slider1.parent('slider1Container');
   slider2.parent('slider2Container');
@@ -47,6 +48,7 @@ function setup () {
   slider12.parent('slider12Container');
   slider13.parent('slider13Container');
   slider14.parent('slider14Container');
+  slider15.parent('slider15Container');
 
   faceGuideCheckbox = createCheckbox('', false);
   faceGuideCheckbox.parent('checkbox1Container');
@@ -82,6 +84,7 @@ function draw () {
   let s12 = slider12.value();
   let s13 = slider13.value();
   let s14 = slider14.value();
+  let s15 = slider15.value();
 
   let show_face_guide = faceGuideCheckbox.checked();
 
@@ -115,9 +118,11 @@ function draw () {
    let eyeHeight =map(s12,0,100,-0.5,0.5)
 
    let browY =map(s13,0,100 ,-1,1)
-   let browThick =map(s14,0,100, -0.5,1)
+   let browThick =map(s14,0,100,-0.5,1)
+
+   let headHeight =map(s15,0,100, -1,1)
    
-   MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY,browThick);
+   MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY,browThick, headHeight);
   }
 
   if (mode == '2') {

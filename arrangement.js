@@ -10,7 +10,7 @@ let lastSwapTime = 0;
 const millisPerSwap = 3000;
 
 // global variables for colors
-const bg_color1 = [77, 113, 135];
+const bg_color1 = [62, 96, 120];
 function setup () {
   // create the drawing canvas, save the canvas element
   let main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -32,6 +32,20 @@ function changeRandomSeed() {
 function mouseClicked() {
   changeRandomSeed();
 }
+//averagedrandom code from class
+function getAveragedRandom(min, max, n) {
+
+  let sum = 0;
+ 
+  for(let i=0; i<n; i++) {
+ 
+  sum = sum + random(min, max);
+ 
+  }
+ 
+  return sum / n;
+ 
+ }
 
 function draw () {
   if(millis() > lastSwapTime + millisPerSwap) {
@@ -44,6 +58,12 @@ function draw () {
   // clear screen
   background(bg_color1);
   noStroke();
+
+/////////////////////// SETTING ///////////////////////////////////
+  //blue bars
+   fill(42, 62, 77)
+  rect(0,450,960,50)
+  rect(0,0,960,50)
 
   //plinth 1
 push();
@@ -216,11 +236,11 @@ ellipse(30,417.5,10)
 ellipse(160,417.5,10)
 pop();
 
-///////////////////////////////////////////////////////
+///////////////////////// FACES  //////////////////////////////
 
 
 
-// draw a 7x4 grid of faces
+// draw a row of 5 faces
   let w = canvasWidth / 5;
   let h = canvasHeight / 1;
   for(let i=0; i<4; i++) {
@@ -228,24 +248,12 @@ pop();
       let y = h/2 + h*i;
       let x = w/2 + w*j;
      
-        // center face
-      
-        //let is_cyclops = random(0, 100);
-
-        //if(is_cyclops < 10) {
-         // eye_value = 1;
-         // tilt_value = random(-5, 5);
-         // mouth_value = random(0, 1.7);
-        //}
-       
+   
         push();
-        //let headSize = (random(-1.5,1.3))
         translate(x, y);
-
         scale(7.7, 7.7);
-        //scale(10+headSize, 10+headSize);
-        //let randomFaceColour = int(random(0,3))
-        
+     
+        //Parameters
         let faceWidth = random(-0.5,0.5);
         let jawWidth = random(-2,2);
         let chinWidth = random(-1, 2);
@@ -270,13 +278,15 @@ pop();
         let SpinnerValue = random(0,100)
         let randomFaceColour = int(random(0,3))
 
+
+      //face colour picker
         if(SpinnerValue < 50){
           randomFaceColour = 0;
         }
         else{
           randomFaceColour = int(random(1,3))
         }
-        //MAINFACE(tilt_value, eye_value, mouth_value);
+    
   
         MAINFACE(faceWidth, jawWidth, chinWidth, chinLength, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick, headHeight, randomFaceColour);
         pop();

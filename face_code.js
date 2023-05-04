@@ -7,12 +7,6 @@
  * These functions are used by your final arrangement of faces as well as the face editor.
  */
 
-
-/*
- * tilt_value is in degrees
- * eye_value is an integer number of eyes: either 0, 1, 2, or 3
- * mouth_value is how open the mouth is and should generally range from 0.5 to 10
- */
 function MAINFACE(faceWidth, jawWidth, chinLength, chinWidth, mouthY, mouthSize, noseWidth, noseLength, eyeX, eyeY, eyeWidth, eyeHeight, browY, browThick, headHeight, colourValue) {
  //let facecolour= color(204, 192, 169)
 let shadowColour= color(158, 146, 122)
@@ -30,11 +24,11 @@ let bustShadow = [tanD,greyD,greenD]
   noStroke()
   //stroke(100)//temp
 
-////////////bust///////////////////////////
+/////////////////// NECK AND SHOULDERS ///////////////////////////
   push();
 translate(-12.5,-32.5);
 scale(0.13, 0.13);
-//neck and shoulders
+//neck and shoulders shape
 fill(bustColour[colourValue])
 beginShape();
 vertex(60-jawWidth*7,250)
@@ -58,9 +52,7 @@ vertex(60-jawWidth*7,330-jawWidth*5)
 endShape(CLOSE);
 pop();
 
-
-  /////////////////ears///////////////////
-//rect(-6.5-faceWidth,-1.5,-2.5,5)//L
+//////////////////////// EARS   ///////////////////
 fill(bustShadow[colourValue])
 beginShape()
 vertex(-6.5-faceWidth,-1.5)
@@ -71,7 +63,6 @@ vertex(-6-faceWidth,5)
 vertex(-5-faceWidth,4)
 endShape(CLOSE)
 
-//rect(6.5+faceWidth,-1.5,2.5,5)//R
 fill(bustColour[colourValue])
 beginShape()
 vertex(6.5+faceWidth,-1.5)
@@ -83,8 +74,8 @@ vertex(5+faceWidth,4)
 endShape(CLOSE)
 
  
-////////////////////head//////////////////////
-
+/////////////////////// HEAD ////////////////////////
+//headshape
   beginShape();
   vertex(-2-chinWidth,10+chinLength);//chin L
   vertex(-0,10.3+chinLength)
@@ -93,23 +84,21 @@ endShape(CLOSE)
   vertex(6.2+jawWidth,5.5);//Jaw R
   vertex(7+faceWidth,2);
   vertex(7+faceWidth,-3);
-
   vertex(6,-7-headHeight/2);
   vertex(3,-9-headHeight);
   vertex(0,-9.5-headHeight);
   vertex(-3,-9-headHeight);
   vertex(-6,-7-headHeight/2);
-
   vertex(-7-faceWidth,-3);
   vertex(-7-faceWidth,2);
   vertex(-6.2-jawWidth,5.5);//Jaw L
   vertex(-5.8-jawWidth,6.5);//Jaw L
   endShape(CLOSE);
 
+  //head shadow
   fill(bustShadow[colourValue])
   beginShape();
   vertex(-5-faceWidth-jawWidth/3,2)
-  //vertex(-5.5-faceWidth,0)
   vertex(-6-faceWidth,-2)
   vertex(-7-faceWidth,-3);
   vertex(-7-faceWidth,2);
@@ -120,16 +109,14 @@ endShape(CLOSE)
   vertex(2+chinWidth,10+chinLength);//chin R
   vertex(1+chinWidth,9+chinLength)
   vertex(-1-chinWidth,8+chinLength)
-
   endShape(CLOSE)
   
-  //fill (featureColour)
-/////////////////eyes//////////////////////
-  //rect(2+eyeX-eyeWidth/2,-1.5+eyeY,3+eyeWidth,2+eyeHeight)//R
-  //rect(-2-eyeX+eyeWidth/2,-1.5+eyeY,-3-eyeWidth,2+eyeHeight)//R
+  
+//////////////////// EYES //////////////////////////
+  
 
-  //left eye//
-  fill (bustShadow[colourValue])
+//left eye
+fill (bustShadow[colourValue])
 push();
 translate(0-eyeX+eyeWidth/2,eyeY)
 scale(1+eyeWidth/2,1+eyeHeight/2)
@@ -146,18 +133,18 @@ vertex(-4.7,-0.5)
 vertex(-4.3,-0.9)
 vertex(-2.5,-0.9)
 endShape(CLOSE);
-
+//left eye bag
 beginShape();
 vertex(-1.2,0.4)
 vertex(-3.5,0.8)
 vertex(-3.5,2)
 endShape(CLOSE);
 pop();
-
+//left pupil
 ellipse(-3.3-eyeX-eyeWidth,-0.5+eyeY,1.5+eyeHeight)
 
 
-//right eye//
+//right eye
 push();
 translate(0+eyeX-eyeWidth/2,eyeY)
 scale(1+eyeWidth/2,1+eyeHeight/2)
@@ -173,7 +160,7 @@ vertex(4.7,-0.5)
 vertex(4.3,-0.9)
 vertex(2.5,-0.9)
 endShape(CLOSE);
-
+//right eyebag
 beginShape();
 vertex(1.2,0.4)
 vertex(3,0.8)
@@ -181,17 +168,14 @@ vertex(3.5,3)
 vertex(2.5,2.5)
 endShape(CLOSE);
 pop();
-
+//right pupil
 ellipse(3.3+eyeX+eyeWidth,-0.5+eyeY,1.5+eyeHeight)
 
 
 
 
-///////////////brows///////////////////////////////
-//fill (featureColour)
-  //rect(1,-3-browY-browThick,5,1+browThick)
-  //rect(-1,-3-browY-browThick,-5,1+browThick)
-  
+//////////////////// BROWS ///////////////////////////////
+ //left brow
   fill (bustShadow[colourValue])
   push();
   translate(0,0-browY+browThick)
@@ -204,7 +188,7 @@ ellipse(3.3+eyeX+eyeWidth,-0.5+eyeY,1.5+eyeHeight)
   vertex(-6,-2.5)
   endShape(CLOSE);
   pop();
-
+//right brow
   push();
   translate(0,0-browY+browThick)
   scale(1,1+browThick/2)
@@ -217,13 +201,10 @@ ellipse(3.3+eyeX+eyeWidth,-0.5+eyeY,1.5+eyeHeight)
   endShape(CLOSE);
   pop();
 
-////////////////////nose////////////////////////////////////
-//fill (featureColour)
-//rect(-1.5-noseWidth/2,-2,3+noseWidth,5+noseLength)
+/////////////////////// NOSE ////////////////////////////////////
 
 push()
 fill (bustShadow[colourValue])
-
 translate(0,-0.5+noseLength);
 scale(1+noseWidth,1+noseLength);
 
@@ -246,12 +227,7 @@ vertex(-0.4,2)
 endShape(CLOSE);
 pop();
 
-
-
-//fill (featureColour)
-//////////////////mouth////////////////////
-
-//rect(-3-mouthSize/2,4.5+mouthY,6+mouthSize,2+mouthSize)
+///////////////////// MOUTH ////////////////////////
 
 push()
 fill (bustShadow[colourValue])

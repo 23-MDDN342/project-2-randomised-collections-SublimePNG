@@ -103,7 +103,7 @@ function draw () {
 
   push();
   if (mode == '1') {
-   // draw face using values mapped from 3 sliders
+   // draw face using values mapped from 16 sliders
    let faceWidth = map(s1, 0, 100, -0.5,0.5)
    let jawWidth = map(s2, 0, 100, -2, 2);
    let chinWidth = map(s3, 0, 100, -1, 2);

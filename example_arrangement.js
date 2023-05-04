@@ -31,20 +31,22 @@ const bg_color1 = [77, 113, 135]
 function mouseClicked() {
   changeRandomSeed();
 }
-
+//averagedrandom code from class
 function getAveragedRandom(min, max, n) {
 
- let sum = 0;
-
- for(let i=0; i<n; i++) {
-
- sum = sum + random(min, max);
-
+  let sum = 0;
+ 
+  for(let i=0; i<n; i++) {
+ 
+  sum = sum + random(min, max);
+ 
+  }
+ 
+  return sum / n;
+ 
  }
 
- return sum / n;
 
-}
 
 function draw () {
   if(millis() > lastSwapTime + millisPerSwap) {
@@ -58,31 +60,17 @@ function draw () {
   background(bg_color1);
   noStroke();
 
-  // draw a 7x4 grid of faces
+  // draw a 7x3 grid of faces
   let w = canvasWidth / 7;
   let h = canvasHeight / 3;
   for(let i=0; i<4; i++) {
     for(let j=0; j<7; j++) {
       let y = h/2 + h*i;
       let x = w/2 + w*j;
-     
-        // center face
-      
-        //let is_cyclops = random(0, 100);
-
-        //if(is_cyclops < 10) {
-         // eye_value = 1;
-         // tilt_value = random(-5, 5);
-         // mouth_value = random(0, 1.7);
-        //}
-       
-        push();
-        //let headSize = (random(-1.5,1.3))
-        translate(x, y);
-
-        scale(5, 5);
-        //scale(10+headSize, 10+headSize);
-        //let randomFaceColour = int(random(0,3))
+       push();
+       translate(x, y);
+       scale(5, 5);
+        
         
         let faceWidth = random(-0.5,0.5);
         let jawWidth = random(-2,2);
